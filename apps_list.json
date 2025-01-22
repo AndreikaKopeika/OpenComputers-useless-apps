@@ -3,12 +3,12 @@
     {
       "name": "Milk",
       "description": "Tells milk status",
-      "url": "https://example.com/app1.lua"
+      "url": "https://raw.githubusercontent.com/AndreikaKopeika/OpenComputers-useless-apps/main/Milk.lua"
     },
     {
       "name": "Steps",
       "description": "steps...",
-      "url": "https://example.com/app2.lua"
+      "url": "https://raw.githubusercontent.com/AndreikaKopeika/OpenComputers-useless-apps/main/Steps.lua"
     }
   ]
 }
