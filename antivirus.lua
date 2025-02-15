@@ -79,9 +79,9 @@ end
 local function showLoadingScreen()
     term.clear()
     term.setCursor(0, 0)
-    term.write("V 1.0")
+    term.write("V 1.2")
     term.setCursor(centerX - 7, centerY)
-    term.write("Антивирус загружается...")
+    term.write("Антивирус загружается...\n")
     term.write("KopeikaSoft")
     
     for i = 1, 100, math.random(5, 15) do
@@ -203,8 +203,12 @@ local function scanFolders()
     scanProfileFile()
 
     if not suspiciousFound then
+        term.clear()
+        term.setCursor(0, 0)
         print("\n✅ Все файлы проверены. Опасных данных не найдено.")
     else
+        term.clear()
+        term.setCursor(0, 0)
         print("\n⚠️ Сканирование завершено с предупреждениями!")
         print("Найденные подозрительные файлы/код:")
 
@@ -212,12 +216,8 @@ local function scanFolders()
         for _, file in ipairs(foundFiles) do
             print(file)
         end
-
-        -- Спрашиваем, хотим ли удалить все
-        term.setCursor(centerX - 10, centerY + 5)
-        print("Хотите удалить все подозрительные файлы? (y/n) (При выборе n вы сможете выбрать отдельные файлы)")
+        print("Хотите удалить все подозрительные файлы? (y/n) \n(При выборе n вы сможете выбрать отдельные файлы)")
         local response = io.read()
-
         if response:lower() == "y" then
             for _, file in ipairs(foundFiles) do
                 if filesystem.exists(file) then
@@ -229,7 +229,6 @@ local function scanFolders()
         else
             -- Если нет, спрашиваем для каждого файла по очереди
             for _, file in ipairs(foundFiles) do
-                term.setCursor(centerX - 10, centerY + 5)
                 print("Удалить файл: " .. file .. "? (y/n)")
                 local deleteResponse = io.read()
 
