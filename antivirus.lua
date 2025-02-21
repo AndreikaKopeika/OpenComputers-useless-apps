@@ -268,6 +268,7 @@ local function showMainMenu()
             print("\nНажмите любую клавишу для возврата...")
             event.pull("key")
         elseif choice == "2" then
+            restoreProfileFile()
             term.clear()
             print("🔒 Антивирус завершил работу.")
             os.exit()
